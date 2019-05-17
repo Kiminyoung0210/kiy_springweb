@@ -9,11 +9,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
-/**
- * 인터페이스 MemberDao의 구현체. SpringJdbc를 사용해서 구현
- * 
- * @author Jacob
- */
+
 @Repository("memberDao")
 public class MemberDaoImplUsingSpringJdbc implements MemberDao {
 
