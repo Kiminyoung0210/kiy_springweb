@@ -59,8 +59,8 @@ public class ArticleController {
 	 */
 	@PostMapping("/article/add")
 	public String articleAdd(Article article, HttpSession session) {
-		article.setUserId("2017041053");
-		article.setName("김인영");
+		article.setUserId("123456");
+		article.setName("이상원");
 		articleDao.addArticle(article);
 		return "redirect:/app/article/list";
 	}

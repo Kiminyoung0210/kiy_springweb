@@ -79,4 +79,3 @@ public class Member {
 				+ name + ", cdate=" + cdate + "]";
 	}
 }
-
