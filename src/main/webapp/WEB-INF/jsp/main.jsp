@@ -32,6 +32,12 @@
 		<a href="./app/members">[회원 목록]</a>
 	</p>
 	<p>
+		<a href="./app/member/memberInfo">[사용자 정보]</a>
+		</p>
+		<p>
+		<a href="./app/member/changePwdForm">[비밀번호 변경]</a>
+		</p>
+	<p>
 		<a href="./app/article/list">[게시판]</a>
 	</p>
 </body>

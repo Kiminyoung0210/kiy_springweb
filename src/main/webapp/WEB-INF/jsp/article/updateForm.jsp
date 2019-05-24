@@ -1,4 +1,3 @@
-
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!doctype html>
 <html>
@@ -8,7 +7,7 @@
 </head>
 <body>
 	<%@ include file="/WEB-INF/jsp/header.jsp"%>
-	<h2>글 등록</h2>
+	<h2>글 수정</h2>
 	<p>
 		<a href="./app/article/list">글 목록</a>
 	</p>

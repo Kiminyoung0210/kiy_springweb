@@ -21,9 +21,12 @@ th {
 </style>
 </head>
 <body>
+	<%@ include file="/WEB-INF/jsp/header.jsp"%>
 	<h2>글 목록</h2>
 	<p>
-		<a href="./app/article/addForm">글쓰기</a>
+		<a href="./app/article/addForm">글쓰기 |</a>
+		<a href="./app/article/editForm">글수정 |</a>
+		<a href="./app/article/removeForm">글삭제 |</a>
 	</p>
 	<p>전체 ${totalCount }건</p>
 	<form action="./app/article/list">

@@ -18,7 +18,10 @@ public class ArticleDao {
 	static final String GET_ARTICLE = "select articleId, title, content, userId, name, left(cdate,16) cdate, udate from article where articleId=?";
 
 	static final String ADD_ARTICLE = "insert article(title,content,userId,name) values(?,?,?,?)";
+	
+	static final String UPDATE_ARTICLE = "UPDATE article SET title=?, content=? WHERE(articleId, userId)=(?,?)";
 
+	static final String DELETE_ARTICLE = "DELETE FROM article  WHERE(articleId, userId)=(?,?)";
 	@Autowired
 	JdbcTemplate jdbcTemplate;
 
@@ -54,5 +57,18 @@ public class ArticleDao {
 	public int addArticle(Article article) {
 		return jdbcTemplate.update(ADD_ARTICLE, article.getTitle(),
 				article.getContent(), article.getUserId(), article.getName());
+	}
+	
+	/**
+	 * 글수정
+	 */
+	public int updateArticle(String articleId, String memberId) {
+		return jdbcTemplate.update(UPDATE_ARTICLE,  articleId, memberId); 
+	}
+	/**
+	 * 글삭제
+	 */
+	public int deleteArticle(String articleId, String memberId) {
+		return jdbcTemplate.update(DELETE_ARTICLE, articleId, memberId); 
 	}
 }
