@@ -82,5 +82,4 @@ public class Article {
 				+ ", content=" + content + ", userId=" + userId + ", name="
 				+ name + ", cdate=" + cdate + ", udate=" + udate + "]";
 	}
-
 }

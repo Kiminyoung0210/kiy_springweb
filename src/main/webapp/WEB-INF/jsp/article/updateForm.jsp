@@ -10,19 +10,32 @@
 	<h2>글 수정</h2>
 	<p>
 		<a href="./app/article/list">글 목록</a>
-	</p>
-	<form action="./app/article/add" method="post">
-		<p>제목 :</p>
-		<p>
-			<input type="text" name="title" maxlength="100" style="width: 100%;" required>
 		</p>
-		<p>내용 :</p>
-		<p>
-			<textarea name="content" style="width: 100%; height: 200px;" required></textarea>
+	<c:choose>
+		<c:when test="${sessionScope.MEMBER.memberId==article.userId }">
+		<form action="./app/article/update" method="post">
+	<p>회원 이름 : ${MEMBER.name }</p>
+
+	<p>글번호 : <input type=hidden name="articleId" id="articleId" value=${article.articleId }> ${article.articleId }
+		
+		<p>제목 :
+			<input type="text" name="title" maxlength="100" style="width: 100%;" 
+			required value=${article.title }>
 		</p>
-		<p>
-			<button type="submit">등록</button>
+		
+		<p>내용 :
+			<textarea name="content" style="width: 100%; height: 400px;" 
+			required> ${article.contentHtml }
+			</textarea>
 		</p>
-	</form>
+		
+		<p>
+			<button type="submit">수정</button>
+		</p>
+			</form>
+		</c:when>
+		<c:otherwise>
+		<p>수정 권한이 없습니다.</p>
+		</c:otherwise>
+	</c:choose>
 </body>
-</html>

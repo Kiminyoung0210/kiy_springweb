@@ -2,6 +2,7 @@ package org.kiy.article;
 
 import java.util.List;
 
+import org.kiy.article.Article;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -19,9 +20,9 @@ public class ArticleDao {
 
 	static final String ADD_ARTICLE = "insert article(title,content,userId,name) values(?,?,?,?)";
 	
-	static final String UPDATE_ARTICLE = "UPDATE article SET title=?, content=? WHERE(articleId, userId)=(?,?)";
+	static final String UPDATE_ARTICLE = "UPDATE article SET title=?, content=? WHERE articleId=?";
 
-	static final String DELETE_ARTICLE = "DELETE FROM article  WHERE(articleId, userId)=(?,?)";
+	static final String DELETE_ARTICLE = "DELETE FROM article  WHERE articleId=?";
 	@Autowired
 	JdbcTemplate jdbcTemplate;
 
@@ -62,13 +63,14 @@ public class ArticleDao {
 	/**
 	 * 글수정
 	 */
-	public int updateArticle(String articleId, String memberId) {
-		return jdbcTemplate.update(UPDATE_ARTICLE,  articleId, memberId); 
+	public int updateArticle(Article article) {
+		return jdbcTemplate.update(UPDATE_ARTICLE, article.getTitle(),
+				article.getContent(), article.getArticleId());
 	}
 	/**
 	 * 글삭제
 	 */
-	public int deleteArticle(String articleId, String memberId) {
-		return jdbcTemplate.update(DELETE_ARTICLE, articleId, memberId); 
-	}
+	public int deleteArticle(Article article) {
+		return jdbcTemplate.update(DELETE_ARTICLE, article.getArticleId());
+	 }
 }

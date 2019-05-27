@@ -72,26 +72,39 @@ public class ArticleController {
 	}
 	
 	/**
-	 * 글 수정
-	 */
-	@PostMapping("/article/update")
-	public String articleUpdate(Article article,
-			@SessionAttribute("MEMBER") Member member) {
-		article.setUserId(member.getMemberId());
-		article.setName(member.getName());
-		articleDao.addArticle(article);
-		return "redirect:/app/article/list";
-	}
-	
-	/**
-	 * 글 삭제
-	 **/
-	@PostMapping("/article/delete")
-	public String articleDelete(Article article,
-			@SessionAttribute("MEMBER") Member member) {
-		article.setUserId(member.getMemberId());
-		article.setName(member.getName());
-		articleDao.addArticle(article);
-		return "redirect:/app/article/list";
-	}
+     *  글 수정 폼
+     */
+    @GetMapping("/article/updateForm")
+    public void articleupdateForm(Article article,HttpSession session,
+            @RequestParam("articleId") String articleId,
+            @SessionAttribute("MEMBER") Member member, Model model) {
+        article = articleDao.getArticle(articleId);
+        article.getUserId();
+        model.addAttribute("article", article);
+    }
+    /**
+     *  글 수정 
+     */
+    @PostMapping("/article/update")
+    public String articleUpdate(Article article,HttpSession session,
+            @SessionAttribute("MEMBER") Member member) {
+        article.setArticleId(article.articleId);
+        articleDao.updateArticle(article);
+        return "redirect:/app/article/list";
+    }
+      /**
+     * 글 삭제
+     */
+    @PostMapping("/article/delete")
+    public String articledelete(Article article,HttpSession session,
+            @RequestParam("articleId") String articleId,
+            @SessionAttribute("MEMBER") Member member) {
+        article.setUserId(member.getMemberId());
+        article.setName(member.getName());
+        article = articleDao.getArticle(articleId);
+        if(!member.getMemberId().equals(article.getUserId()))
+            return "redirect:/app/article/deleteFailed";
+        articleDao.deleteArticle(article);
+        return "redirect:/app/article/deleteForm";
+        } 
 }

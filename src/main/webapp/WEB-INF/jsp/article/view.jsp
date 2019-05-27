@@ -10,7 +10,10 @@
 	<h2>글 보기</h2>
 	<p>
 		<a href="./app/article/list">글 목록</a>
-	</p>
+		<a href="./app/article/updateForm?articleId=${article.articleId}">글수정 |</a>
+		<form action="./app/article/delete?articleId=${article.articleId}" method="post">
+			<button type="submit">삭제</button>
+		</form>
 	<hr />
 	<p>
 		<span>${article.articleId }</span> | <span style="font-weight: bold;">${article.title }</span>
