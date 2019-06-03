@@ -14,6 +14,10 @@
 	<p>${sessionScope.MEMBER.name }</p>
 	<p>
 		<a href="./app/member/changePwdForm">비밀번호 변경</a>
+		<p>
+		<a href="./app/letter/listReceived">받은편지</a>
+		<p>
+		<a href="./app/letter/listSent">보낸편지</a>
 	</p>
 </body>
 </html>
