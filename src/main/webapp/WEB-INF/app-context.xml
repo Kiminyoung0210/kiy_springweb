@@ -19,10 +19,19 @@
 
 	<mvc:interceptors>
 		<mvc:interceptor>
+<<<<<<< HEAD
 			<mvc:mapping path="/member/*" />
 			<mvc:mapping path="/article/s/*" />
 			<mvc:mapping path="/letter/*" />
 			<bean class="org.jacob.book.chap13.AuthCheckInterceptor" />
+=======
+			<mvc:mapping path="/member/**" />
+			<mvc:mapping path="/article/add*" />
+			<mvc:mapping path="/article/update*" />
+			<mvc:mapping path="/article/delete" />
+			<mvc:mapping path="/letter/**" />
+			<bean class="org.kiy.book.chap13.AuthCheckInterceptor" />
+>>>>>>> ff98951b7cc8bc688ff99f1453c33e2e340fd7c7
 		</mvc:interceptor>
 	</mvc:interceptors>
 
