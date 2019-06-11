@@ -8,12 +8,6 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.web.servlet.HandlerInterceptor;
 
-/**
- * p.373 [리스트 13.22] AuthCheckInterceptor 수정<br>
- * 로그인 안했을 경우 로그인 화면으로 redirect.<br>
- * 
- * @author Jacob
- */
 public class AuthCheckInterceptor implements HandlerInterceptor {
 
 	static final Logger logger = LogManager.getLogger();

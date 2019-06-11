@@ -11,7 +11,7 @@
 	<p>
 		<a href="./app/article/list">글 목록</a>
 		<a href="./app/article/updateForm?articleId=${article.articleId}">글수정 |</a>
-		<form action="./app/article/delete?articleId=${article.articleId}" method="post">
+		<form action="./app/article/s/delete?articleId=${article.articleId}" method="post">
 			<button type="submit">삭제</button>
 		</form>
 	<hr />
